@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Istoria României</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0e0e0e;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+            button:hover {
+                background: gold;
+            }
+
+        section {
+            min-height: 100vh;
+            padding: 150px 40px 60px 40px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+            section.active {
+                display: block;
+                opacity: 1;
+            }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button onclick="showPage('home')">Acasă</button>
+        <button onclick="showPage('antichitate')">Antichitate</button>
+        <button onclick="showPage('medieval')">Evul Mediu</button>
+        <button onclick="showPage('modern')">Epoca Modernă</button>
+    </nav>
+
+    <section id="home" class="active">
+        <h1>Istoria României</h1>
+        <p>
+            Acest proiect prezintă evoluția istorică a teritoriului românesc
+            din Antichitate până în Epoca Modernă.
+        </p>
+    </section>
+
+    <section id="antichitate">
+        <h1>Antichitate</h1>
+        <p>
+            Aici pui conținutul despre Dacia, Decebal, cucerirea romană,
+            civilizația geto-dacică etc.
+        </p>
+    </section>
+
+    <section id="medieval">
+        <h1>Evul Mediu</h1>
+        <p>
+            Aici pui conținutul despre Ștefan cel Mare, Mircea cel Bătrân,
+            Mihai Viteazul, luptele cu Imperiul Otoman etc.
+        </p>
+    </section>
+
+    <section id="modern">
+        <h1>Epoca Modernă</h1>
+        <p>
+            Aici pui conținutul despre Unirea Principatelor, Independență,
+            Marea Unire, dezvoltarea României moderne etc.
+        </p>
+    </section>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+</html>
